@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Test</title>
+</head>
+<body>
+<script>
+    const ws = new WebSocket("ws://localhost:8080/ws");
+    ws.onopen = () => {
+        console.log("连接已建立");
+        ws.send("Hello, WebSocket!");
+    };
+    ws.onmessage = (event) => {
+        console.log("收到消息:", event.data);
+    };
+    ws.onclose = () => {
+        console.log("连接已关闭");
+    };
+</script>
+</body>
+</html>
